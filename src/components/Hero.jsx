@@ -471,7 +471,7 @@ const Hero = ({ isLoading }) => {
           </a>
         ))}
         <div
-          className="mt-2 social-line"
+          className="mt-2"
           style={{
             width: '1px',
             height: '100px',
@@ -479,7 +479,6 @@ const Hero = ({ isLoading }) => {
           }}
         />
       </div>
-      )}
     </section>
   )
 }
