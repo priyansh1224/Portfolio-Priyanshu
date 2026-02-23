@@ -299,24 +299,21 @@ const Certificate = () => {
   ───────────────────────────────────────────── */
 
   useEffect(() => {
-    // Simplify animations on mobile
-    const isMobile = window.innerWidth <= 768
-    
     const ctx = gsap.context(() => {
       document.querySelectorAll('.cert-card').forEach((card, i) => {
         gsap.fromTo(
           card,
-          { opacity: 0, y: isMobile ? 20 : 40 },
+          { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
-            duration: isMobile ? 0.4 : 0.7,
-            delay: isMobile ? i * 0.05 : i * 0.08,
+            duration: 0.7,
+            delay: i * 0.08,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: card,
               start: 'top 88%',
-              toggleActions: 'play none none none',
+              toggleActions: 'play none none reverse',
             },
           }
         )
@@ -325,12 +322,12 @@ const Certificate = () => {
       // CTA
       gsap.from('.cert-cta-card', {
         opacity: 0,
-        y: isMobile ? 30 : 50,
-        duration: isMobile ? 0.5 : 0.9,
+        y: 50,
+        duration: 0.9,
         scrollTrigger: {
           trigger: '.cert-cta-section',
           start: 'top 80%',
-          toggleActions: 'play none none none',
+          toggleActions: 'play none none reverse',
         },
       })
     }, gridRef)
@@ -343,18 +340,16 @@ const Certificate = () => {
   ───────────────────────────────────────────── */
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768
-    
     document.querySelectorAll('.cert-card').forEach((card, i) => {
       gsap.fromTo(
         card,
-        { opacity: 0, y: isMobile ? 15 : 30, scale: isMobile ? 1 : 0.95 },
+        { opacity: 0, y: 30, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: isMobile ? 0.3 : 0.5,
-          delay: isMobile ? i * 0.03 : i * 0.05,
+          duration: 0.5,
+          delay: i * 0.05,
           ease: 'power3.out',
         }
       )

@@ -35,9 +35,6 @@ const Skills = () => {
 
   // ─── THREE.JS GLOBE WITH ICONS ───
   useEffect(() => {
-    // Skip 3D globe on mobile for better performance
-    if (window.innerWidth <= 768) return
-    
     const container = globeRef.current
     if (!container) return
 
