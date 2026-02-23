@@ -112,16 +112,16 @@ const Header = ({ menuOpen, setMenuOpen }) => {
     <header
       id="header"
       ref={headerRef}
-      className="fixed top-0 left-0 w-full z-[1000] px-5 md:px-10 transition-all duration-400"
+      className="fixed top-0 left-0 w-full z-[1000] px-4 md:px-10 transition-all duration-400"
     >
-      <div className="flex justify-between items-center h-[80px] max-w-[1400px] mx-auto">
+      <div className="flex justify-between items-center h-[70px] md:h-[80px] max-w-[1400px] mx-auto">
         {/* Logo */}
         <Link
           to="/"
           className="z-[1001]"
           onClick={handleLogoClick}
         >
-          <div className="font-mono text-2xl font-bold text-light tracking-wide transition-all duration-400 hover:rotate-y-10 hover:text-shadow-neon"
+          <div className="font-mono text-xl md:text-2xl font-bold text-light tracking-wide transition-all duration-400 hover:rotate-y-10 hover:text-shadow-neon"
             style={{ transformStyle: 'preserve-3d', perspective: '500px' }}
           >
             <span className="text-accent-1 transition-colors duration-300 hover:text-accent-3">
@@ -163,13 +163,13 @@ const Header = ({ menuOpen, setMenuOpen }) => {
         </nav>
 
         {/* Header Right */}
-        <div className="flex items-center gap-6 z-[1001]">
+        <div className="flex items-center gap-3 md:gap-6 z-[1001]">
           {/* Resume Button */}
           <a
             href="https://drive.google.com/file/d/1BhFwsdcHosDtsI_be2yXrniiztjQ9Kjy/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 py-2 px-5 md:px-[22px] border border-accent-1/50 rounded-full text-sm font-medium text-accent-2 transition-all duration-400 relative overflow-hidden hover:text-white hover:border-transparent hover:shadow-neon hover:-translate-y-0.5"
+            className="group flex items-center gap-2 py-2 px-4 md:px-[22px] border border-accent-1/50 rounded-full text-xs md:text-sm font-medium text-accent-2 transition-all duration-400 relative overflow-hidden hover:text-white hover:border-transparent hover:shadow-neon hover:-translate-y-0.5"
           >
             {/* Gradient BG on hover */}
             <span className="absolute inset-0 bg-gradient-main opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-full" />

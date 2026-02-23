@@ -13,12 +13,20 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: auto;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
     @apply font-primary bg-dark text-light leading-relaxed overflow-x-hidden;
     cursor: none;
     line-height: 1.7;
+    width: 100%;
+    position: relative;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   a {
@@ -63,6 +71,12 @@
     body, a, button, input, textarea {
       cursor: auto;
     }
+    
+    /* Reduce animations on mobile for better performance */
+    * {
+      animation-duration: 0.5s !important;
+      transition-duration: 0.3s !important;
+    }
   }
 }
 
@@ -72,7 +86,7 @@
 @layer components {
   /* Container */
   .container-custom {
-    @apply w-[90%] max-w-[1320px] mx-auto px-5;
+    @apply w-[90%] max-w-[1320px] mx-auto px-4 md:px-5;
   }
 
   /* Text Gradient */

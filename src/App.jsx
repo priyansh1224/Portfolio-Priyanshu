@@ -33,6 +33,14 @@ function App() {
   ───────────────────────────────────────────── */
 
   useEffect(() => {
+    // Skip preloader on mobile for better performance
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        if (onComplete) onComplete()
+      }, 500)
+      return
+    }
+
     if (!isHomePage && isLoading) {
       setIsLoading(false)
     }
