@@ -86,7 +86,7 @@
 @layer components {
   /* Container */
   .container-custom {
-    @apply w-[90%] max-w-[1320px] mx-auto px-4 md:px-5;
+    @apply w-[90%] max-w-[1320px] mx-auto px-5;
   }
 
   /* Text Gradient */
