@@ -1,0 +1,830 @@
+/* ============================================
+   TAILWIND DIRECTIVES
+   ============================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BASE RESET & GLOBALS
+   ============================================ */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply font-primary bg-dark text-light leading-relaxed overflow-x-hidden;
+    cursor: none;
+    line-height: 1.7;
+  }
+
+  a {
+    @apply no-underline text-inherit;
+    cursor: none;
+  }
+
+  img {
+    @apply max-w-full block;
+  }
+
+  button {
+    cursor: none;
+    border: none;
+    background: none;
+    @apply font-primary;
+  }
+
+  input, textarea {
+    cursor: none;
+    @apply font-primary;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.35);
+    @apply text-light;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-1 rounded;
+  }
+
+  /* Mobile cursor override */
+  @media (max-width: 768px) {
+    body, a, button, input, textarea {
+      cursor: auto;
+    }
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply w-[90%] max-w-[1320px] mx-auto px-5;
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    @apply rounded-custom-md backdrop-blur-[20px] relative overflow-hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-px pointer-events-none;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+
+  /* Section Header */
+  .section-number {
+    @apply font-mono text-sm text-accent-1 tracking-widest block mb-2;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+
+  .section-title {
+    @apply font-display font-bold tracking-tight overflow-hidden;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-line {
+    @apply w-[70px] h-[3px] rounded mt-4;
+    background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+  }
+}
+
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
+.cursor-dot {
+  @apply w-2 h-2 rounded-full fixed top-0 left-0 pointer-events-none z-[10002];
+  background: #7c3aed;
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #7c3aed, 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.cursor-outline {
+  @apply w-11 h-11 rounded-full fixed top-0 left-0 pointer-events-none z-[10001];
+  border: 1.5px solid rgba(124, 58, 237, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.35s, height 0.35s, border-color 0.35s, background-color 0.35s, border-radius 0.35s;
+}
+
+.cursor-outline.hover {
+  @apply w-[70px] h-[70px];
+  border-color: #06d6a0;
+  background: rgba(6, 214, 160, 0.06);
+  border-radius: 20px;
+}
+
+.cursor-trail {
+  @apply w-[120px] h-[120px] rounded-full fixed top-0 left-0 pointer-events-none z-[10000];
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.06), transparent 70%);
+  filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-outline,
+  .cursor-trail {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   NOISE & GRAIN OVERLAYS
+   ============================================ */
+.noise-overlay {
+  @apply fixed pointer-events-none z-[9997];
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: noiseShift 0.2s steps(3) infinite;
+}
+
+@keyframes noiseShift {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(-2px, 1px); }
+  66% { transform: translate(1px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+.grain-overlay {
+  @apply fixed top-0 left-0 w-full h-full pointer-events-none z-[9998];
+  opacity: 0.015;
+  background: repeating-conic-gradient(rgba(255,255,255,0.1) 0% 25%, transparent 0% 50%) 0 0 / 3px 3px;
+}
+
+/* ============================================
+   PRELOADER
+   ============================================ */
+#preloader {
+  @apply fixed inset-0 w-full h-full z-[99999] flex flex-col items-center justify-center gap-[60px];
+  background: radial-gradient(circle at center, #160515 0%, #0a0a0f 100%);
+  perspective: 1000px;
+}
+
+.cube-scene {
+  @apply w-[120px] h-[120px];
+  perspective: 600px;
+}
+
+.cube {
+  @apply w-full h-full relative;
+  transform-style: preserve-3d;
+  animation: cubeRotate 4s infinite ease-in-out;
+}
+
+@keyframes cubeRotate {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  25% { transform: rotateX(90deg) rotateY(90deg); }
+  50% { transform: rotateX(180deg) rotateY(180deg); }
+  75% { transform: rotateX(270deg) rotateY(270deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.cube-face {
+  @apply absolute w-[120px] h-[120px] flex items-center justify-center text-5xl font-black text-white;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2));
+  border: 2px solid rgba(236, 72, 153, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.cube-face.front  { transform: translateZ(60px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(60px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(60px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(60px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(60px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+/* Orbit Rings */
+.orbit-ring {
+  @apply absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(236, 72, 153, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(70deg);
+  animation: orbitSpin 3s linear infinite;
+}
+
+.orbit-ring::before {
+  content: '';
+  @apply absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: #ec4899;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ec4899;
+}
+
+.orbit-ring.ring-2 {
+  width: 280px;
+  height: 280px;
+  border-color: rgba(139, 92, 246, 0.2);
+  animation-direction: reverse;
+  animation-duration: 4s;
+}
+
+.orbit-ring.ring-2::before {
+  background: #8b5cf6;
+  box-shadow: 0 0 20px #8b5cf6;
+}
+
+@keyframes orbitSpin {
+  from { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg); }
+}
+
+/* Loader Bottom */
+.loader-bottom {
+  @apply absolute w-[300px];
+  bottom: 80px;
+}
+
+.loader-line {
+  @apply relative overflow-visible;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.line-fill {
+  @apply h-full relative;
+  width: 0%;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6, #f97316);
+  border-radius: 3px;
+}
+
+.line-dot {
+  @apply absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.8);
+}
+
+.loader-info {
+  @apply flex justify-between mt-4;
+  font-size: 0.8rem;
+}
+
+.loader-label {
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.loader-percent {
+  color: #ec4899;
+  @apply font-bold;
+}
+
+/* ============================================
+   HERO SPECIFIC STYLES
+   ============================================ */
+.hero-bg-grid {
+  @apply absolute inset-0;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+.hero-aurora {
+  @apply absolute top-0 left-0 w-full pointer-events-none;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.05) 0%, rgba(76, 201, 240, 0.03) 30%, transparent 100%);
+  animation: auroraPulse 6s ease-in-out infinite alternate;
+}
+
+/* Title specific */
+.title-word {
+  @apply font-display font-bold inline-block relative;
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  transform: translateY(120%);
+  transition: text-shadow 0.3s;
+}
+
+.title-word:hover {
+  text-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+}
+
+.title-word::after {
+  content: attr(data-text);
+  @apply absolute top-0 left-0 w-full h-full;
+  background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.title-word:hover::after {
+  opacity: 1;
+}
+
+.title-outline {
+  -webkit-text-stroke: 2px #eeeef5;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-outline:hover {
+  -webkit-text-fill-color: #eeeef5;
+  -webkit-text-stroke: 0;
+}
+
+.title-ampersand {
+  @apply font-display inline-block;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  background: linear-gradient(135deg, #f72585, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(120%);
+}
+
+/* ============================================
+   NAV ITEM HOVER EFFECT
+   ============================================ */
+.nav-item {
+  @apply text-light-secondary relative overflow-hidden flex flex-col items-center justify-center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 10px 18px;
+  height: 40px;
+  transition: color 0.3s;
+}
+
+.nav-text,
+.nav-hover-text {
+  @apply block;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 40px;
+}
+
+.nav-hover-text {
+  @apply absolute text-accent-2;
+  transform: translateY(100%);
+}
+
+.nav-item:hover .nav-text {
+  transform: translateY(-100%);
+}
+
+.nav-item:hover .nav-hover-text {
+  transform: translateY(0);
+}
+
+.nav-item::before {
+  content: attr(data-index);
+  @apply font-mono absolute;
+  font-size: 0.55rem;
+  color: #7c3aed;
+  top: 2px;
+  left: 12px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover::before {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* Active Nav */
+.nav-active .nav-text {
+  color: #a78bfa !important;
+}
+
+.nav-active::after {
+  content: '';
+  @apply absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+  border-radius: 2px;
+}
+
+/* ============================================
+   SKILL CARD STYLES
+   ============================================ */
+.skill-icon-3d {
+  @apply w-[55px] h-[55px] mx-auto mb-4 flex items-center justify-center rounded-2xl relative;
+  font-size: 1.6rem;
+  color: var(--icon-color);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s;
+  transform-style: preserve-3d;
+}
+
+.skill-icon-3d::before {
+  content: '';
+  @apply absolute rounded-[18px] z-[-1];
+  inset: -3px;
+  background: conic-gradient(from 0deg, transparent 60%, var(--icon-color) 80%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  animation: iconBorderSpin 3s linear infinite;
+  filter: blur(2px);
+}
+
+@keyframes iconBorderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.skill-card-3d:hover .skill-icon-3d::before {
+  opacity: 0.6;
+}
+
+.skill-card-3d:hover .skill-icon-3d {
+  transform: translateZ(20px) scale(1.15);
+  box-shadow: 0 0 25px var(--icon-glow);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Skill Meter */
+.meter-fill {
+  @apply h-full rounded;
+  background: linear-gradient(90deg, var(--meter-color), rgba(255,255,255,0.3));
+  width: 0%;
+  transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px var(--meter-color);
+}
+
+/* ============================================
+   PROJECT 3D HOVER
+   ============================================ */
+.project-3d-hover {
+  perspective: 1000px;
+}
+
+.project-reflection {
+  @apply absolute pointer-events-none;
+  bottom: -50%;
+  left: 5%;
+  right: 5%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(5, 5, 16, 0.3), transparent);
+  transform: scaleY(-1);
+  opacity: 0.15;
+  filter: blur(8px);
+  border-radius: 26px;
+}
+
+/* ============================================
+   JOURNEY TIMELINE
+   ============================================ */
+.timeline-track {
+  @apply absolute top-0 bottom-0 rounded;
+  left: 32px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.timeline-progress {
+  @apply w-full rounded;
+  height: 0%;
+  background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+}
+
+.journey-year-badge {
+  @apply absolute rounded-full font-mono font-semibold;
+  top: -12px;
+  right: 20px;
+  padding: 4px 14px;
+  background: #7c3aed;
+  color: white;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.journey-now {
+  background: #06d6a0 !important;
+  box-shadow: 0 4px 15px rgba(6, 214, 160, 0.3) !important;
+  color: #050510 !important;
+}
+
+/* Journey Icon */
+.journey-icon {
+  @apply w-12 h-12 rounded-[14px] flex items-center justify-center flex-shrink-0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--j-color);
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.journey-card:hover .journey-icon {
+  background: var(--j-color);
+  color: white;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  transform: scale(1.1);
+}
+
+/* ============================================
+   CONTACT FORM INPUT LINE
+   ============================================ */
+.input-line {
+  @apply absolute bottom-0 left-0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+}
+
+.form-group input:focus ~ .input-line,
+.form-group textarea:focus ~ .input-line {
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: transparent;
+}
+
+/* ============================================
+   BACK TO TOP PROGRESS
+   ============================================ */
+.progress-ring {
+  @apply absolute;
+  top: -1px;
+  left: -1px;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  stroke: #7c3aed;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  filter: drop-shadow(0 0 4px rgba(124, 58, 237, 0.4));
+}
+
+/* ============================================
+   MARQUEE STRIP
+   ============================================ */
+.marquee-track {
+  @apply flex;
+  animation: marqueeScroll 35s linear infinite;
+  width: max-content;
+}
+
+/* ============================================
+   CERTIFICATE PAGE SPECIFIC
+   ============================================ */
+/* Cert Hero Grid */
+.cert-hero-grid {
+  @apply absolute inset-0;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 65%);
+}
+
+/* Search Line */
+.search-line {
+  @apply absolute;
+  bottom: 0;
+  left: 28px;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #7c3aed, #4cc9f0);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.cert-search input:focus ~ .search-line {
+  transform: scaleX(1);
+}
+
+/* Cert Card List View */
+.cert-grid.list-view {
+  @apply grid-cols-1 gap-6;
+}
+
+.cert-grid.list-view .cert-card-inner {
+  @apply grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.cert-grid.list-view .cert-image-wrapper {
+  height: 100%;
+}
+
+/* Lightbox */
+.cert-lightbox {
+  @apply fixed inset-0 z-[10000] flex items-center justify-center pointer-events-none opacity-0;
+  transition: opacity 0.4s;
+}
+
+.cert-lightbox.active {
+  @apply pointer-events-auto opacity-100;
+}
+
+.lightbox-backdrop {
+  @apply absolute inset-0;
+  background: rgba(5, 5, 16, 0.92);
+  backdrop-filter: blur(30px);
+}
+
+.lightbox-container {
+  @apply relative z-[2];
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  transform: scale(0.9) translateY(30px);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-lightbox.active .lightbox-container {
+  transform: scale(1) translateY(0);
+}
+
+/* Decorative spinning rings */
+.cta-deco-ring {
+  @apply absolute inset-0 rounded-full;
+  border: 2px dashed rgba(124, 58, 237, 0.2);
+  animation: spin 20s linear infinite;
+}
+
+.cta-deco-ring-2 {
+  @apply absolute rounded-full;
+  inset: 20px;
+  border: 2px dashed rgba(6, 214, 160, 0.15);
+  animation: spin 25s linear infinite reverse;
+}
+
+/* ============================================
+   FLOATING TAG POSITIONS
+   ============================================ */
+.tag-1 { top: 18%; right: 12%; }
+.tag-2 { top: 32%; right: 6%; }
+.tag-3 { bottom: 35%; right: 18%; }
+.tag-4 { bottom: 22%; left: 8%; }
+.tag-5 { top: 50%; right: 25%; }
+
+/* ============================================
+   HAMBURGER ANIMATION
+   ============================================ */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+  background: #7c3aed;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  background: #7c3aed;
+}
+
+/* ============================================
+   DECO CORNER & CIRCLE (About Section)
+   ============================================ */
+.deco-tl {
+  @apply absolute top-0 left-0;
+  width: 70px;
+  height: 70px;
+  border-top: 2px solid #7c3aed;
+  border-left: 2px solid #7c3aed;
+  border-radius: 6px 0 0 0;
+  box-shadow: -3px -3px 15px rgba(124, 58, 237, 0.15);
+}
+
+.deco-br {
+  @apply absolute bottom-0 right-0;
+  width: 70px;
+  height: 70px;
+  border-bottom: 2px solid #06d6a0;
+  border-right: 2px solid #06d6a0;
+  border-radius: 0 0 6px 0;
+  box-shadow: 3px 3px 15px rgba(6, 214, 160, 0.15);
+}
+
+.deco-circle {
+  @apply absolute rounded-full;
+  width: 100px;
+  height: 100px;
+  border: 1px dashed rgba(124, 58, 237, 0.2);
+  bottom: -30px;
+  left: -30px;
+  animation: spin 20s linear infinite;
+}
+
+/* ============================================
+   GLITCH OVERLAY ANIMATION
+   ============================================ */
+@keyframes glitchOverlay {
+  0% { opacity: 0; }
+  20% { opacity: 0.8; background: rgba(124, 58, 237, 0.15); transform: translate(-3px, 2px); }
+  40% { opacity: 0; }
+  60% { opacity: 0.5; background: rgba(6, 214, 160, 0.1); transform: translate(3px, -1px); }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+.about-image-frame:hover .image-glitch-overlay {
+  animation: glitchOverlay 0.3s ease;
+}
+
+/* ============================================
+   EXP RING SVG
+   ============================================ */
+.exp-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 1;
+}
+
+.exp-ring-fill {
+  fill: none;
+  stroke: #7c3aed;
+  stroke-width: 1;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 70;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(124, 58, 237, 0.4));
+}
+
+/* ============================================
+   RESPONSIVE OVERRIDES
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-social-sidebar,
+  .hero-floating-elements,
+  .hero-scroll-indicator {
+    display: none !important;
+  }
+
+  .about-code-badge {
+    display: none;
+  }
+
+  section {
+    padding: 80px 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-word {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+  }
+}
