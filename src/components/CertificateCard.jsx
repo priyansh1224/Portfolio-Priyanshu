@@ -43,7 +43,7 @@ const CertificateCard = ({ cert, index, viewMode, onPreview }) => {
         </div>
 
         {/* Content */}
-        <div className="p-7">
+        <div className="p-5 md:p-7">
           {/* Header */}
           <div className="flex items-center gap-3 mb-4">
             <div
@@ -111,15 +111,18 @@ const CertificateCard = ({ cert, index, viewMode, onPreview }) => {
               style={{ fontSize: '0.8rem' }}
             >
               <i className="fas fa-external-link-alt" style={{ fontSize: '0.7rem' }} />
-              View Credential
+              <span className="hidden sm:inline">View Credential</span>
+              <span className="sm:hidden">Credential</span>
             </a>
-            <button
+            <a
+              href={cert.image}
+              download={`${cert.title}.jpeg`}
               className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-light-muted transition-all duration-300 hover:text-accent-1 hover:border-accent-1 hover:bg-accent-1/10"
               title="Download"
               style={{ fontSize: '0.8rem' }}
             >
               <i className="fas fa-download" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

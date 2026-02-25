@@ -15,12 +15,26 @@ const ProjectCard = ({ project, index, isReverse }) => {
     const item = itemRef.current
     if (!item) return
 
+    const isMobile = window.innerWidth < 768
+
     const ctx = gsap.context(() => {
       const imgWrapper = item.querySelector('.project-image-wrapper')
       const details = item.querySelector('.project-details')
       const img = item.querySelector('.project-image img')
       const number = item.querySelector('.project-number')
 
+      if (isMobile) {
+        // On mobile, make everything visible immediately
+        gsap.set([imgWrapper, ...details.children], {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1
+        })
+        return // Skip animations on mobile
+      }
+
+      // Desktop animations
       // Image slide
       gsap.from(imgWrapper, {
         opacity: 0,

@@ -89,15 +89,33 @@ const MobileMenu = ({ menuOpen, setMenuOpen }) => {
     }
 
     e.preventDefault()
-    closeMenu()
+    
+    // Close menu first
+    const items = menuRef.current?.querySelectorAll('.mobile-nav-item')
+    const footer = menuRef.current?.querySelector('.mobile-menu-footer')
 
-    setTimeout(() => {
-      gsap.to(window, {
-        scrollTo: { y: item.href, offsetY: 80 },
-        duration: 1,
-        ease: 'power3.inOut',
-      })
-    }, 500)
+    document.body.style.overflow = ''
+    gsap.to(items, { opacity: 0, y: 40, duration: 0.3, stagger: 0.03 })
+    gsap.to(footer, { opacity: 0, duration: 0.3 })
+    gsap.to('.mobile-menu-bg', {
+      opacity: 0,
+      duration: 0.4,
+      delay: 0.2,
+      onComplete: () => {
+        setMenuOpen(false)
+        // Scroll after menu is closed
+        setTimeout(() => {
+          const target = document.querySelector(item.href)
+          if (target) {
+            const offsetTop = target.offsetTop - 80
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            })
+          }
+        }, 100)
+      },
+    })
   }
 
   // ── Escape key ──────────────────────────────

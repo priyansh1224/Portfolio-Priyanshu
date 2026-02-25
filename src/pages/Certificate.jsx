@@ -16,175 +16,173 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const certificatesData = [
   {
     id: 1,
-    title: 'Web Development Fundamentals',
-    issuer: 'Coursera',
-    issuerIcon: 'fas fa-graduation-cap',
+    title: 'Letter of Recommendation - HR Internship',
+    issuer: 'The Entrepreneurship Network',
+    issuerIcon: 'fas fa-briefcase',
     issuerIconBg: 'rgba(124,58,237,0.1)',
     issuerIconColor: '#a78bfa',
     date: 'Jan 2024',
-    category: 'web',
+    category: 'other',
     description:
-      'Complete web development bootcamp covering HTML, CSS, JavaScript fundamentals and responsive design principles.',
+      '💼 Internship | Human Resource – Business Domain Exposure. 🏢 The Entrepreneurship Network (Limitless Technologies LLP). 🔍 Completed a 3-month internship focused on exploring the business and organizational domain, not core technical development. 📊 Gained practical exposure to startup operations, including HR processes, professional communication, coordination, and internal workflows. 🤝 Developed an understanding of how business strategy, people management, and operational processes integrate with technical teams. 💡 This experience strengthened my business perspective as a tech professional, helping me better align technical work with real-world organizational needs. 📌 Primary focus: Business & organizational exposure | Career path: Technology',
     image: '/img/certificates/certificate1.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'HTML5', icon: 'fab fa-html5', color: '#E44D26' },
-      { name: 'CSS3', icon: 'fab fa-css3-alt', color: '#264de4' },
-      { name: 'JS', icon: 'fab fa-js-square', color: '#F7DF1E' },
+      { name: 'HR', icon: 'fas fa-users', color: '#a78bfa' },
+      { name: 'Business', icon: 'fas fa-briefcase', color: '#7c3aed' },
     ],
   },
   {
     id: 2,
-    title: 'React - The Complete Guide',
-    issuer: 'Udemy',
-    issuerIcon: 'fab fa-react',
+    title: 'Certificate of Completion - HR Internship',
+    issuer: 'The Entrepreneurship Network',
+    issuerIcon: 'fas fa-certificate',
     issuerIconBg: 'rgba(168,87,255,0.1)',
     issuerIconColor: '#a857ff',
     date: 'Mar 2024',
-    category: 'programming',
+    category: 'other',
     description:
-      'Comprehensive React course covering hooks, state management, routing, and building production-ready applications.',
+      '💼 Internship | Human Resource – Business Domain Exposure. 🏢 The Entrepreneurship Network (Limitless Technologies LLP). 🔍 Completed a 3-month internship focused on exploring the business and organizational domain, not core technical development. 📊 Gained practical exposure to startup operations, including HR processes, professional communication, coordination, and internal workflows. 🤝 Developed an understanding of how business strategy, people management, and operational processes integrate with technical teams. 💡 This experience strengthened my business perspective as a tech professional, helping me better align technical work with real-world organizational needs. 📌 Primary focus: Business & organizational exposure | Career path: Technology',
     image: '/img/certificates/certificate2.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'React', icon: 'fab fa-react', color: '#61DAFB' },
-      { name: 'JS', icon: 'fab fa-js-square', color: '#F7DF1E' },
-      { name: 'Redux', icon: 'fas fa-layer-group', color: '#764ABC' },
+      { name: 'HR', icon: 'fas fa-users', color: '#a857ff' },
+      { name: 'Business', icon: 'fas fa-briefcase', color: '#7c3aed' },
     ],
   },
   {
     id: 3,
-    title: 'Advanced JavaScript',
-    issuer: 'freeCodeCamp',
-    issuerIcon: 'fas fa-fire',
+    title: 'Generative AI Foundations Certificate',
+    issuer: 'upGrad x Microsoft',
+    issuerIcon: 'fas fa-robot',
     issuerIconBg: 'rgba(6,214,160,0.1)',
     issuerIconColor: '#06d6a0',
-    date: 'Jun 2024',
-    category: 'web',
+    date: 'Jul 2025',
+    category: 'programming',
     description:
-      'Deep dive into JavaScript including ES6+, async programming, closures, prototypes, and advanced patterns.',
+      '🚀 Thrilled to Share! 🎉 Successfully completed the Generative AI Foundations Certificate Program offered by upGrad in collaboration with Microsoft on 4th July 2025. Throughout this program, I explored: 🔹 Introduction to Generative AI 🔹 Prompt Engineering (Basic & Advanced) 🔹 AI-Powered Research & Content Creation 🔹 AI for Analysis, Presentation & Automation 🔹 Generative AI for Problem-Solving. This learning journey has significantly deepened my understanding of how to effectively apply Generative AI in real-world scenarios. Excited to leverage these skills in upcoming projects! #GenerativeAI #AI #PromptEngineering #upGrad #Microsoft',
     image: '/img/certificates/certificate3.jpeg',
     badge: 'featured',
     credentialLink: '#',
     skills: [
-      { name: 'JavaScript', icon: 'fab fa-js-square', color: '#F7DF1E' },
-      { name: 'Node.js', icon: 'fab fa-node-js', color: '#68A063' },
+      { name: 'AI', icon: 'fas fa-brain', color: '#06d6a0' },
+      { name: 'Prompt Eng', icon: 'fas fa-robot', color: '#00BFA5' },
     ],
   },
   {
     id: 4,
-    title: 'Python for Everybody',
-    issuer: 'Coursera',
-    issuerIcon: 'fab fa-python',
+    title: 'Building Your First AI App Masterclass',
+    issuer: 'upGrad',
+    issuerIcon: 'fas fa-graduation-cap',
     issuerIconBg: 'rgba(255,212,59,0.1)',
     issuerIconColor: '#FFD43B',
-    date: 'Sep 2023',
+    date: 'Jul 2025',
     category: 'programming',
     description:
-      'Python programming specialization covering data structures, web scraping, databases, and data visualization.',
+      '🚀 Just completed the "Building Your First AI App Masterclass" by upGrad! This masterclass provided valuable insights into AI development and how to build practical, real-world AI applications. Excited to apply this knowledge to future projects and continue exploring the potential of artificial intelligence. Big thanks to upGrad and the instructor for the engaging content and learning experience. Let\'s keep growing and building! 💡🤖 #AI #ArtificialIntelligence #upGrad #LearningJourney #AIAppDevelopment #TechInnovation',
     image: '/img/certificates/certificate4.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'Python', icon: 'fab fa-python', color: '#FFD43B' },
-      { name: 'SQL', icon: 'fas fa-database', color: '#4DB33D' },
+      { name: 'AI Dev', icon: 'fas fa-code', color: '#FFD43B' },
+      { name: 'App Dev', icon: 'fas fa-mobile-alt', color: '#F7DF1E' },
     ],
   },
   {
     id: 5,
-    title: 'UI/UX Design Fundamentals',
-    issuer: 'Google',
-    issuerIcon: 'fab fa-google',
+    title: 'Fundamentals of Cybersecurity',
+    issuer: 'upGrad',
+    issuerIcon: 'fas fa-shield-alt',
     issuerIconBg: 'rgba(76,201,240,0.1)',
     issuerIconColor: '#4cc9f0',
-    date: 'Nov 2024',
-    category: 'design',
+    date: 'Jul 2025',
+    category: 'other',
     description:
-      "Google's professional certificate in UI/UX design covering user research, wireframing, prototyping and usability testing.",
+      '🛡️ Completed the Fundamentals of Cybersecurity Course. Excited to share that I\'ve successfully completed the "Fundamentals of Cybersecurity" course from upGrad! This program strengthened my understanding of key cybersecurity concepts, including: 🔐 Threat analysis 🧠 Security architecture 🛠️ Vulnerability assessment 🕵️‍♂️ Cyber attack prevention techniques. Grateful for the opportunity to build a solid foundation in this critical field. Looking forward to applying these skills in real-world projects and continuing my journey in cybersecurity. 📅 Issued on: 16 July, 2025 🎓 Verified by upGrad Education Private Limited #CyberSecurity #upGrad #LifelongLearning',
     image: '/img/certificates/certificate5.jpeg',
     badge: 'featured',
     credentialLink: '#',
     skills: [
-      { name: 'UI/UX', icon: 'fas fa-paint-brush', color: '#4cc9f0' },
-      { name: 'Figma', icon: 'fas fa-pencil-ruler', color: '#f72585' },
+      { name: 'Security', icon: 'fas fa-shield-alt', color: '#4cc9f0' },
+      { name: 'Cyber', icon: 'fas fa-lock', color: '#7c3aed' },
     ],
   },
   {
     id: 6,
-    title: 'Git & GitHub Mastery',
-    issuer: 'LinkedIn Learning',
-    issuerIcon: 'fab fa-linkedin-in',
+    title: 'Software Engineering Job Simulation',
+    issuer: 'Forage',
+    issuerIcon: 'fas fa-laptop-code',
     issuerIconBg: 'rgba(240,80,50,0.1)',
     issuerIconColor: '#F05032',
-    date: 'Feb 2024',
-    category: 'other',
+    date: 'Jun 2025',
+    category: 'programming',
     description:
-      'Complete guide to version control with Git, branching strategies, collaboration workflows, and GitHub features.',
+      '🚀 Excited to share that I\'ve successfully completed the Software Engineering Job Simulation by Forage! Over the course of this program, I gained practical experience in key areas such as: 🔹 Software Architecture 🔹 Programming 🔹 Agile Methodologies 🔹 Testing 🔹 Security. This simulation gave me real-world insight into what it\'s like to work as a software engineer — from problem-solving to secure coding practices — and strengthened my passion for building scalable, high-quality software. Big thanks to Forage and the team behind this initiative for empowering aspiring professionals! #SoftwareEngineering #Forage #LearningByDoing',
     image: '/img/certificates/certificate6.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'Git', icon: 'fab fa-git-alt', color: '#F05032' },
-      { name: 'GitHub', icon: 'fab fa-github', color: '#ffffff' },
+      { name: 'Software Eng', icon: 'fas fa-code', color: '#F05032' },
+      { name: 'Agile', icon: 'fas fa-sync', color: '#68A063' },
     ],
   },
   {
     id: 7,
-    title: 'Git & GitHub Mastery',
-    issuer: 'LinkedIn Learning',
-    issuerIcon: 'fab fa-linkedin-in',
-    issuerIconBg: 'rgba(240,80,50,0.1)',
-    issuerIconColor: '#F05032',
-    date: 'Feb 2024',
-    category: 'other',
+    title: 'JavaScript for Beginners',
+    issuer: 'Simplilearn SkillUp',
+    issuerIcon: 'fab fa-js-square',
+    issuerIconBg: 'rgba(247,223,30,0.1)',
+    issuerIconColor: '#F7DF1E',
+    date: 'May 2025',
+    category: 'web',
     description:
-      'Complete guide to version control with Git, branching strategies, collaboration workflows, and GitHub features.',
+      'Excited to share my latest achievement! 🎉 I have successfully completed the "JavaScript for Beginners" course from Simplilearn SkillUp. This course helped me build a strong foundation in JavaScript, covering essential concepts such as variables, functions, loops, and DOM manipulation. Looking forward to applying these skills in real-world projects and continuing my learning journey in web development and beyond! 🚀 #JavaScript #WebDevelopment #Learning #Certification #Simplilearn',
     image: '/img/certificates/certificate7.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'Git', icon: 'fab fa-git-alt', color: '#F05032' },
-      { name: 'GitHub', icon: 'fab fa-github', color: '#ffffff' },
+      { name: 'JavaScript', icon: 'fab fa-js-square', color: '#F7DF1E' },
+      { name: 'Web Dev', icon: 'fas fa-globe', color: '#E44D26' },
     ],
   },
   {
     id: 8,
-    title: 'Git & GitHub Mastery',
-    issuer: 'LinkedIn Learning',
-    issuerIcon: 'fab fa-linkedin-in',
-    issuerIconBg: 'rgba(240,80,50,0.1)',
-    issuerIconColor: '#F05032',
-    date: 'Feb 2024',
+    title: 'Cybersecurity Analyst Job Simulation',
+    issuer: 'Tata x Forage',
+    issuerIcon: 'fas fa-user-shield',
+    issuerIconBg: 'rgba(124,58,237,0.1)',
+    issuerIconColor: '#7c3aed',
+    date: 'Jun 2025',
     category: 'other',
     description:
-      'Complete guide to version control with Git, branching strategies, collaboration workflows, and GitHub features.',
+      '🛡️ Proud to share that I\'ve completed the Cybersecurity Analyst Job Simulation with Tata through Forage! This hands-on experience helped me build practical skills in: 🔐 Identity and Access Management (IAM) Fundamentals 🧠 IAM Strategy Assessment 🛠️ Crafting Custom IAM Solutions 🔗 Platform Integration. It was a great opportunity to dive deeper into cybersecurity concepts and understand how professionals tackle real-world challenges in digital security. Grateful to Tata and Forage for providing this incredible learning experience! 📅 Completed: June 16th, 2025 #Cybersecurity #IAM #JobSimulation #Tata #Forage',
     image: '/img/certificates/certificate8.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'Git', icon: 'fab fa-git-alt', color: '#F05032' },
-      { name: 'GitHub', icon: 'fab fa-github', color: '#ffffff' },
+      { name: 'IAM', icon: 'fas fa-key', color: '#7c3aed' },
+      { name: 'Security', icon: 'fas fa-shield-alt', color: '#4cc9f0' },
     ],
   },
   {
     id: 9,
-    title: 'Git & GitHub Mastery',
-    issuer: 'LinkedIn Learning',
-    issuerIcon: 'fab fa-linkedin-in',
-    issuerIconBg: 'rgba(240,80,50,0.1)',
-    issuerIconColor: '#F05032',
-    date: 'Feb 2024',
-    category: 'other',
+    title: 'REST API Micro Experience',
+    issuer: 'Crio.Do',
+    issuerIcon: 'fas fa-server',
+    issuerIconBg: 'rgba(104,160,99,0.1)',
+    issuerIconColor: '#68A063',
+    date: 'May 2025',
+    category: 'programming',
     description:
-      'Complete guide to version control with Git, branching strategies, collaboration workflows, and GitHub features.',
+      'Successfully Completed REST API Micro Experience! I\'m excited to share that I have successfully completed the Micro Experience on REST API as part of the Accelerate Workshop by Crio.Do. This experience helped me gain hands-on knowledge in designing, developing, and working with RESTful APIs, enhancing my backend development skills. Looking forward to applying these skills to real-world projects! #RESTAPI #BackendDevelopment #CrioDo #Learning #WebDevelopment',
     image: '/img/certificates/certificate9.jpeg',
     badge: 'verified',
     credentialLink: '#',
     skills: [
-      { name: 'Git', icon: 'fab fa-git-alt', color: '#F05032' },
-      { name: 'GitHub', icon: 'fab fa-github', color: '#ffffff' },
+      { name: 'REST API', icon: 'fas fa-server', color: '#68A063' },
+      { name: 'Backend', icon: 'fas fa-database', color: '#4DB33D' },
     ],
   },
 
@@ -603,9 +601,9 @@ const Certificate = () => {
         }}
       >
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 flex-wrap">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             {/* Search */}
-            <div className="relative flex items-center gap-3 flex-1 max-w-[320px] w-full">
+            <div className="relative flex items-center gap-3 flex-1 max-w-full md:max-w-[400px] w-full">
               <i className="fas fa-search text-light-muted" style={{ fontSize: '0.9rem' }} />
               <input
                 type="text"
@@ -622,25 +620,6 @@ const Certificate = () => {
                   transform: searchQuery ? 'scaleX(1)' : 'scaleX(0)',
                 }}
               />
-            </div>
-
-            {/* Filter buttons */}
-            <div className="flex gap-2 flex-wrap overflow-x-auto md:overflow-visible pb-1 md:pb-0 scrollbar-hide">
-              {filterOptions.map((filter) => (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full font-primary font-medium whitespace-nowrap transition-all duration-300 ${
-                    activeFilter === filter.key
-                      ? 'text-white bg-accent-1 border-accent-1 shadow-[0_0_18px_rgba(124,58,237,0.35)]'
-                      : 'text-light-muted border border-glass-border hover:text-light hover:border-[rgba(124,58,237,0.4)]'
-                  }`}
-                  style={{ fontSize: '0.78rem' }}
-                >
-                  <i className={filter.icon} style={{ fontSize: '0.7rem' }} />
-                  <span className="hidden sm:inline">{filter.label}</span>
-                </button>
-              ))}
             </div>
 
             {/* View toggle */}
@@ -682,12 +661,12 @@ const Certificate = () => {
               className={`transition-all duration-400 ${
                 viewMode === 'list'
                   ? 'grid grid-cols-1 gap-6'
-                  : 'grid gap-8'
+                  : 'grid gap-6 md:gap-8'
               }`}
               style={{
                 gridTemplateColumns:
                   viewMode === 'grid'
-                    ? 'repeat(auto-fill, minmax(370px, 1fr))'
+                    ? 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))'
                     : '1fr',
               }}
             >
@@ -796,6 +775,7 @@ const Certificate = () => {
       {/* ── LIGHTBOX ──────────────────────── */}
       {lightboxOpen && filteredCerts[lightboxIndex] && (
         <Lightbox
+          isOpen={lightboxOpen}
           cert={filteredCerts[lightboxIndex]}
           onClose={closeLightbox}
           onNext={nextLightbox}

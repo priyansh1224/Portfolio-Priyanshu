@@ -169,13 +169,13 @@ const Header = ({ menuOpen, setMenuOpen }) => {
             href="https://drive.google.com/file/d/1BhFwsdcHosDtsI_be2yXrniiztjQ9Kjy/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 py-2 px-5 md:px-[22px] border border-accent-1/50 rounded-full text-sm font-medium text-accent-2 transition-all duration-400 relative overflow-hidden hover:text-white hover:border-transparent hover:shadow-neon hover:-translate-y-0.5"
+            className="group flex items-center gap-2 py-2 px-4 md:px-[22px] border border-accent-1/50 rounded-full text-sm font-medium text-accent-2 transition-all duration-400 relative overflow-hidden hover:text-white hover:border-transparent hover:shadow-neon hover:-translate-y-0.5"
           >
             {/* Gradient BG on hover */}
             <span className="absolute inset-0 bg-gradient-main opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-full" />
-            <span className="relative z-10 hidden md:inline">Resume</span>
+            <span className="relative z-10">Resume</span>
             <div className="relative z-10">
-              <i className="fas fa-arrow-down text-xs group-hover:animate-bounce-down" />
+              <i className="fas fa-external-link-alt text-xs" />
             </div>
           </a>
 

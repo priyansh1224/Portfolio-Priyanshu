@@ -49,7 +49,36 @@ const Journey = () => {
     const section = sectionRef.current
     if (!section) return
 
+    const isMobile = window.innerWidth < 768
+
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        // Make everything visible on mobile
+        const sh = section.querySelector('.section-header')
+        if (sh) {
+          gsap.set(sh.querySelectorAll('.section-number, .title-reveal, .section-line'), {
+            opacity: 1,
+            y: 0
+          })
+        }
+
+        section.querySelectorAll('.journey-item').forEach((item) => {
+          gsap.set(item.querySelector('.journey-marker'), {
+            opacity: 1,
+            scale: 1
+          })
+          gsap.set(item.querySelector('.journey-card'), {
+            opacity: 1,
+            x: 0,
+            rotateY: 0
+          })
+        })
+
+        gsap.set('.timeline-progress', { height: '100%' })
+        return
+      }
+
+      // Desktop animations
       // Section header
       const sh = section.querySelector('.section-header')
       if (sh) {

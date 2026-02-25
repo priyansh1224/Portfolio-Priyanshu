@@ -136,7 +136,19 @@ const Home = ({ isLoading }) => {
   ───────────────────────────────────────────── */
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768
+    
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        // Make everything visible on mobile
+        gsap.set('.projects-section .section-number, .projects-section .title-reveal, .projects-section .section-line, .projects-footer', {
+          opacity: 1,
+          y: 0
+        })
+        return
+      }
+
+      // Desktop animations
       gsap.from(
         '.projects-section .section-number, .projects-section .title-reveal, .projects-section .section-line',
         {
@@ -173,7 +185,20 @@ const Home = ({ isLoading }) => {
   ───────────────────────────────────────────── */
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768
+    
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        // Make everything visible on mobile
+        gsap.set('.contact-section .section-number, .contact-section .title-reveal, .contact-section .section-line, .contact-heading, .contact-subtext, .contact-info-item, .contact-socials, .contact-form', {
+          opacity: 1,
+          y: 0,
+          scale: 1
+        })
+        return
+      }
+
+      // Desktop animations
       gsap.from(
         '.contact-section .section-number, .contact-section .title-reveal, .contact-section .section-line',
         {

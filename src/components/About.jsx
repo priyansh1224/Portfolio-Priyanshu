@@ -19,7 +19,31 @@ const About = () => {
     const section = sectionRef.current
     if (!section) return
 
+    const isMobile = window.innerWidth < 768
+
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        // On mobile, just make everything visible immediately
+        gsap.set('.about-text-col .about-intro, .about-text-col .about-description, .about-text-col .about-details, .about-text-col .about-cta-btn, .detail-card, .about-image-wrapper, .about-code-badge, .about-experience-badge', {
+          opacity: 1,
+          y: 0,
+          x: 0,
+          scale: 1,
+          rotateY: 0
+        })
+        
+        // Section header on mobile
+        const sh = section.querySelector('.section-header')
+        if (sh) {
+          gsap.set(sh.querySelectorAll('.section-number, .title-reveal, .section-line'), {
+            opacity: 1,
+            y: 0
+          })
+        }
+        return // Skip animations on mobile
+      }
+
+      // Desktop animations
       // Section header
       const sh = section.querySelector('.section-header')
       if (sh) {
@@ -50,13 +74,13 @@ const About = () => {
       // Text col elements
       gsap.from('.about-text-col .about-intro, .about-text-col .about-description, .about-text-col .about-details, .about-text-col .about-cta-btn', {
         opacity: 0, y: 45, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-        scrollTrigger: { trigger: '.about-grid', start: 'top 68%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '.about-grid', start: 'top 75%', toggleActions: 'play none none reverse' },
       })
 
       // Detail cards
       gsap.from('.detail-card', {
         opacity: 0, y: 25, scale: 0.95, duration: 0.5, stagger: 0.08, ease: 'power3.out',
-        scrollTrigger: { trigger: '.about-details', start: 'top 85%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '.about-details', start: 'top 90%', toggleActions: 'play none none reverse' },
       })
 
       // Photo parallax
@@ -79,10 +103,10 @@ const About = () => {
   }
 
   return (
-    <section id="about" ref={sectionRef} className="py-[140px] relative bg-dark">
+    <section id="about" ref={sectionRef} className="py-[80px] md:py-[140px] relative bg-dark">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="section-header mb-20 relative">
+        <div className="section-header mb-12 md:mb-20 relative">
           <span className="section-number">02</span>
           <h2 className="section-title">
             <span className="title-reveal inline-block">About Me</span>
@@ -91,7 +115,7 @@ const About = () => {
         </div>
 
         {/* About Grid */}
-        <div className="about-grid grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-16 items-center">
+        <div className="about-grid grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-10 md:gap-16 items-center">
           {/* Image Column */}
           <div className="about-image-col">
             <div className="about-image-wrapper relative max-w-[420px] mx-auto lg:max-w-none" style={{ perspective: '1000px' }}>
@@ -181,27 +205,27 @@ const About = () => {
           {/* Text Column */}
           <div className="about-text-col relative">
             <div className="about-intro">
-              <h3 className="font-display text-[2rem] font-bold mb-2">
+              <h3 className="font-display text-[1.5rem] md:text-[2rem] font-bold mb-2">
                 Web Developer & <span className="text-gradient">Tech Enthusiast</span>
               </h3>
-              <p className="text-light-muted mb-8" style={{ fontSize: '1rem' }}>
+              <p className="text-light-muted mb-6 md:mb-8" style={{ fontSize: '0.9rem' }}>
                 Building my skills one project at a time
               </p>
             </div>
 
             <div className="about-description">
-              <p className="text-light-secondary mb-5" style={{ fontSize: '0.95rem', lineHeight: '1.85' }}>
+              <p className="text-light-secondary mb-4 md:mb-5" style={{ fontSize: '0.9rem', lineHeight: '1.75' }}>
                 Hello! I'm Priyanshu, a self-taught web developer from Uttarakhand, India. I'm on an exciting
                 journey to master web development and build meaningful projects that make a difference.
               </p>
-              <p className="text-light-secondary mb-5" style={{ fontSize: '0.95rem', lineHeight: '1.85' }}>
+              <p className="text-light-secondary mb-4 md:mb-5" style={{ fontSize: '0.9rem', lineHeight: '1.75' }}>
                 While I'm still in the learning phase, I've already completed several projects that showcase
                 my growing skills in frontend and backend. I'm passionate about creating clean, functional websites.
               </p>
             </div>
 
             {/* Detail Cards */}
-            <div className="about-details grid grid-cols-1 sm:grid-cols-2 gap-4 my-10">
+            <div className="about-details grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 my-8 md:my-10">
               {details.map((detail, i) => (
                 <div
                   key={i}

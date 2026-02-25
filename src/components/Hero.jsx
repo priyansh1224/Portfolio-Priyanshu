@@ -449,36 +449,37 @@ const Hero = ({ isLoading }) => {
       {/* ── Social Sidebar ─────────────────── */}
       {!isLoading && (
         <div className="hero-social-sidebar fixed left-10 bottom-0 hidden md:flex flex-col items-center gap-5 z-[9999]" style={{ opacity: 1 }}>
-        {socialLinks.map((social, i) => (
-          <a
-            key={i}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={social.title}
-            className="text-light-muted transition-all duration-300 relative hover:text-accent-1 hover:-translate-y-1 group"
-            style={{ fontSize: '1.1rem' }}
-          >
-            <i className={social.icon} />
-            <span
-              className="absolute rounded-full transition-all duration-300 group-hover:border-accent-1/30"
-              style={{
-                inset: '-8px',
-                border: '1px solid transparent',
-                borderRadius: '50%',
-              }}
-            />
-          </a>
-        ))}
-        <div
-          className="mt-2"
-          style={{
-            width: '1px',
-            height: '100px',
-            background: 'linear-gradient(to bottom, #5a5a78, transparent)',
-          }}
-        />
-      </div>
+          {socialLinks.map((social, i) => (
+            <a
+              key={i}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={social.title}
+              className="text-light-muted transition-all duration-300 relative hover:text-accent-1 hover:-translate-y-1 group"
+              style={{ fontSize: '1.1rem' }}
+            >
+              <i className={social.icon} />
+              <span
+                className="absolute rounded-full transition-all duration-300 group-hover:border-accent-1/30"
+                style={{
+                  inset: '-8px',
+                  border: '1px solid transparent',
+                  borderRadius: '50%',
+                }}
+              />
+            </a>
+          ))}
+          <div
+            className="mt-2 social-line"
+            style={{
+              width: '1px',
+              height: '100px',
+              background: 'linear-gradient(to bottom, #5a5a78, transparent)',
+            }}
+          />
+        </div>
+      )}
     </section>
   )
 }
