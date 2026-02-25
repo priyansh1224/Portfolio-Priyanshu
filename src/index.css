@@ -639,7 +639,7 @@
 /* Slow it way down on mobile - no more supercar speed! */
 @media (max-width: 768px) {
   .marquee-track {
-    animation: marqueeScroll 120s linear infinite;
+    animation: marqueeScroll 200s linear infinite !important;
   }
 }
 
