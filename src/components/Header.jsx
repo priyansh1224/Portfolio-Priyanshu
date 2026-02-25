@@ -166,7 +166,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
         <div className="flex items-center gap-6 z-[1001]">
           {/* Resume Button */}
           <a
-            href="https://drive.google.com/file/d/1BhFwsdcHosDtsI_be2yXrniiztjQ9Kjy/view?usp=sharing"
+            href="https://drive.google.com/file/d/1d_JLiywVWm6Y7EPsyY3my-a1yfZBnPW2/view?usp=drivesdk"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 py-2 px-4 md:px-[22px] border border-accent-1/50 rounded-full text-sm font-medium text-accent-2 transition-all duration-400 relative overflow-hidden hover:text-white hover:border-transparent hover:shadow-neon hover:-translate-y-0.5"
