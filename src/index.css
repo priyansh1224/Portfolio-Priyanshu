@@ -636,10 +636,10 @@
   width: max-content;
 }
 
-/* Slower on mobile for better readability */
+/* Much slower on mobile for better readability */
 @media (max-width: 768px) {
   .marquee-track {
-    animation: marqueeScroll 50s linear infinite;
+    animation: marqueeScroll 80s linear infinite;
   }
 }
 
