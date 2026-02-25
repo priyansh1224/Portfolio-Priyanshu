@@ -636,10 +636,10 @@
   width: max-content;
 }
 
-/* Much slower on mobile for better readability */
+/* Slow it way down on mobile - no more supercar speed! */
 @media (max-width: 768px) {
   .marquee-track {
-    animation: marqueeScroll 80s linear infinite;
+    animation: marqueeScroll 120s linear infinite;
   }
 }
 
