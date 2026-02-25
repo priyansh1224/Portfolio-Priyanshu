@@ -636,6 +636,15 @@
   width: max-content;
 }
 
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ============================================
    CERTIFICATE PAGE SPECIFIC
    ============================================ */
